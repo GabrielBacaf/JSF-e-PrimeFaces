@@ -11,6 +11,14 @@ import java.util.Objects;
 public class Empresa implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    public TipoEmpresa getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoEmpresa tipo) {
+        this.tipo = tipo;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
