@@ -3,6 +3,7 @@ package com.algaworks.erp.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
 
@@ -23,8 +24,19 @@ public class Empresa implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nome_fantasia", nullable = false, length = 80)
+    public BigDecimal getFaturamento() {
+		return faturamento;
+	}
+
+	public void setFaturamento(BigDecimal faturamento) {
+		this.faturamento = faturamento;
+	}
+
+	@Column(name = "nome_fantasia", nullable = false, length = 80)
     private String nomeFantasia;
+    
+    @Column(precision = 10, scale =2)
+    private BigDecimal faturamento;
 
     @Column(name  = "razao_social", nullable = false, length = 120)
     private String razaoSocial;
